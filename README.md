@@ -1,4 +1,4 @@
-# SC-CODE
+# SC-Clouds
 
 Códigos solicitados para avaliação de desenvolvedor da empresa SC Clouds.
 
