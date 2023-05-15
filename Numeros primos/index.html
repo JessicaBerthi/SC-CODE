@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-image: url(https://img.freepik.com/free-vector/white-abstract-wallpaper_23-2148830026.jpg?w=2000);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="number"] {
+            padding: 5px;
+            width: 100px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 10px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        p {
+            margin-top: 20px;
+        }
+
+    </style>
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="https://play-lh.googleusercontent.com/6pLp9JkP0Zd9c5HKOjPzKwomhuysWfGDmOwEBJez5gWrn9ZzLphT2IA7MH2aShsH48I" />
+        <title>Números primos</title>
+
+    </head>
+    
+    <script>
+
+        function encontrarPrimos() {
+            var numero = parseInt(document.getElementById("numero").value);
+            var primos = [];
+
+            if (isNaN(numero) || numero <= 1) {
+                alert("Por favor, insira um número válido maior que 1.");
+                return;
+            }
+
+            for (var i = 2; i <= numero; i++) {
+                var ehPrimo = true;
+                for (var j = 2; j < i; j++) {
+                    if (i % j === 0) {
+                        ehPrimo = false;
+                        break;
+                    }
+                }
+                if (ehPrimo) {
+                    primos.push(i);
+                }
+            }
+
+            var resultado = document.getElementById("resultado");
+            resultado.innerHTML = "Números primos até " + numero + ": " + primos.join(", ");
+        }
+    </script>
+
+</head>
+
+    <body>
+        <h2 strong>Números Primos</h2>
+            <p>São números naturais maiores que 1
+             que possuem apenas dois divisores:
+             1 e o próprio número. </p>
+            <p>Em outras palavras, 
+            um número primo é aquele que não pode ser 
+            dividido por nenhum outro número além de 1 
+            e ele mesmo, sem deixar resto.</p>
+
+             <form name="formulario">
+                <label for="numero"> Digite um número: </label>
+                <input type="number" id="numero" name="numero"/>
+            </form> 
+            <br>
+
+            <button onclick="encontrarPrimos()">Calcular</button>
+            <button type="button" id="apagar"> Apagar </button>
+
+            <p id="resultado"></p>
+
+            <script type="text/javascript" src="primos.js"></script>         
+    </body>
+
+</html>
